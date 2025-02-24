@@ -1,0 +1,149 @@
+/* General Reset */
+body {
+    font-family: 'Franklin Gothic', sans-serif;
+    background-color: #EBD99F; /* Purdue Gold */
+    color: #000000; /* Black */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation Container */
+  .menu-container {
+    position: relative;
+    background-color: #CFB991; /* Boilermaker Gold */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Twitter Icon */
+  .twitter-icon {
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+    margin-right: auto;
+  }
+  
+  /* Hamburger Icon - Visible on mobile */
+  .hamburger {
+    font-size: 24px;
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    z-index: 2000;
+  }
+  
+  /* Navigation Menu for Mobile */
+  #navbar {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #000000; /* Black */
+    padding: 20px;
+    text-align: center;
+    /* Initially hidden offscreen */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* When the "open" class is added, show the menu */
+  #navbar.open {
+    transform: translateX(0);
+  }
+  
+  /* Close Icon - Inside the mobile menu */
+  .close {
+    font-size: 24px;
+    color: #CFB991;
+    text-decoration: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  /* Menu Items in the Nav */
+  #navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 50px 0 0 0; /* Leave room for the close icon */
+  }
+  #navbar li {
+    padding: 15px;
+  }
+  #navbar a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #CFB991;
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+    display: block;
+  }
+  #navbar a:hover {
+    background-color: #555960;
+    color: #EBD99F;
+  }
+  
+  /* Desktop (Horizontal Nav) Styles */
+  @media screen and (min-width: 700px) {
+    /* Reset nav to static, full-width layout */
+    #navbar {
+      position: static;
+      width: 100%;
+      height: auto;
+      background-color: #e8e0ca; /* Soft background */
+      padding: 0;
+      transform: none;
+      transition: none;
+    }
+    /* Hide hamburger and close icons */
+    .hamburger,
+    .close {
+      display: none;
+    }
+    #navbar ul {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+    #navbar li {
+      display: inline-block;
+      padding: 12px 20px;
+    }
+  }
+  
+  /* Additional Page Elements */
+  .bulletin-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  .card {
+    background-color: #DAAA00; /* Purdue Rush Gold */
+    padding: 15px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+  }
+  .week-container {
+    text-align: center;
+    padding: 50px;
+  }
+  .center-image {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .quote {
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  

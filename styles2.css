@@ -1,0 +1,143 @@
+/* General Reset */
+body {
+    font-family: 'Franklin Gothic', sans-serif;
+    background-color: #EBD99F; /* Purdue Gold */
+    color: #000000; /* Black */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation Container */
+  .menu-container {
+    position: relative;
+    background-color: #CFB991; /* Boilermaker Gold */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Hamburger Icon */
+  .hamburger {
+    font-size: 24px;
+    color: #000000;
+    text-decoration: none;
+    display: block; /* Always display on mobile */
+    z-index: 2000;
+  }
+  
+  /* Navigation Menu - Mobile (Default) */
+  nav {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 30%;          
+    height: 100vh;
+    background-color: rgb(211, 179, 85);
+    text-align: center;
+    padding-top: 60px; /* Space for the close icon */
+    /* Initially hide the menu by sliding it off-screen upward */
+    transform: translateY(-100%);
+    transition: transform 0.1s ease;
+  }
+  
+  /* When the nav element is the target, slide it into view */
+  nav:target {
+    transform: translateY(0);
+  }
+  
+  /* Close Icon - Placed inside the nav menu */
+  .close {
+    font-size: 24px;
+    color: #000000; /* Adjust if needed */
+    text-decoration: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  /* Menu Items */
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 50px 0 0 0;  /* Leave space for the close icon */
+  }
+  nav li {
+    padding: 15px;
+  }
+  nav a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;  /* Adjust as needed */
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+    display: block;
+  }
+  nav a:hover {
+    background-color: #555960;
+    color: #EBD99F;
+  }
+  
+  /* Desktop (Horizontal Menu) */
+  @media screen and (min-width: 699px) {
+    /* The nav becomes static and full width */
+    nav {
+      position: static;
+      height: auto;
+      transform: none;
+      width: 100%;
+      background-color: #e8e0ca; /* Light background for desktop menu */
+      padding: 0;
+      transition: none;
+    }
+    
+    /* Hide hamburger and close icons on desktop */
+    .hamburger, .close {
+      display: none;
+    }
+    
+    /* Horizontal menu styling */
+    nav ul {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+    nav li {
+      display: inline-block;
+      padding: 12px 20px;
+    }
+  }
+  
+  /* Additional Page Elements (for example) */
+  .bulletin-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  .card {
+    background-color: #DAAA00; /* Purdue Rush Gold */
+    padding: 15px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+  }
+  .week-container {
+    text-align: center;
+    padding: 50px;
+  }
+  .center-image {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .quote {
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  
