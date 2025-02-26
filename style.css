@@ -1,186 +1,153 @@
-/** @format */
-/* General Reset */
 body {
     font-family: 'Franklin Gothic', sans-serif;
     background-color: #EBD99F; /* Purdue Gold */
     color: #000000; /* Black */
     margin: 0;
     padding: 0;
-}
-
-/* Navigation Container */
-.menu-container {
+  }
+  
+  /* Navigation Container */
+  .menu-container {
     position: relative;
     background-color: #CFB991; /* Boilermaker Gold */
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-/* Twitter Icon */
-.twitter-icon {
-    font-size: 20px;
+  }
+  
+  /* Twitter Icon (always visible in full screen) */
+  .twitter-icon {
+    font-size: 24px;
     color: #000000;
     text-decoration: none;
-    margin-right: auto;
-}
-
-/* Hamburger Icon */
-.hamburger {
-    /* 
-    position: absolute;
-    top: 15px;
-    left: 15px;   
+  }
+  
+  /* Hamburger Icon */
+  .hamburger {
+    font-size: 24px;
+    color: #000000;
+    text-decoration: none;
+    display: block; /* Always display on mobile */
     z-index: 2000;
-    cursor: pointer;
-    display: none;
-    */
-    font-size: 24px;
-    color: #000000;
-    text-decoration: none;
-    display: block;
-}
-
-/* Close Icon */
-.close {
-    font-size: 24px;
-    color: #CFB991;
-    cursor: pointer;
-    align-self: flex-start;
-
-    text-decoration: none;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-/* Navigation Menu */
-nav {
+  }
+  
+  /* Navigation Menu - Mobile (Default) */
+  nav {
     position: absolute;
     z-index: 1000;
     top: 0;
-    left: 0;
+    right: 0; /* change: Removed left:0, replaced with right:0 */
+    left: auto;       
     width: 30%;
-    border: 1px;
-    padding: 1px;
     height: 100vh;
+    background-color: rgb(211, 179, 85);
     text-align: center;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    padding-top: 60px;
-}
-
-/* When nav is targeted, show the menu */
-nav:target {
+    padding-top: 60px;     /* Space for the close icon */
+    /* Initially hide the menu by sliding it off-screen to the right */
+    transform: translateX(100%); /* change: translateX(100%) instead of translateY(-100%)*/
+    transition: transform 0.1s ease; 
+  }
+  
+  /* When the nav element is the target, slide it into view */
+  nav:target {
     transform: translateX(0);
-    /*transform: translateY(0);*/
-}
-
-/* Menu Items */
-nav ul {
-    list-style-type: none;
+  }
+  
+  /* Close Icon - Placed inside the nav menu (top-left corner) */
+  .close {
+    font-size: 24px;
+    color: #000000; 
+    text-decoration: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;  /* Keep close icon in top-left corner of the right-sided menu */
+  }
+  
+  /* Menu Items */
+  nav ul {
+    list-style: none;
     padding: 0;
-    margin: 50px 0 0 0; /* Add top margin to clear the close icon */
-}
-nav li {
+    margin: 50px 0 0 0;  /* Leave space for the close icon */
+  }
+  
+  nav li {
     padding: 15px;
-}
-/* Menu Links */
-nav a {
+  }
+  
+  nav a {
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
-    color: #CFB991;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    color: #000000; 
+    transition: background 0.3s ease, color 0.3s ease;
     border-radius: 5px;
-}
-/* Hover Effects */
-nav a:hover {
+    display: block;
+  }
+  
+  nav a:hover {
     background-color: #555960;
     color: #EBD99F;
-}
-
-/* Responsive Design - Show Full Menu on Larger Screens */
-@media screen and (min-width: 700px) {
+  }
+  
+  /* Desktop (Horizontal Menu) */
+  @media screen and (min-width: 699px) {
+    /* The nav becomes static and full width */
     nav {
-        position: static;
-        height: auto;
-        /*transform: translateX(0);
-        transform: translateY(0);*/
-        width: 100%;
-        background-color: #e8e0ca; 
-        padding: 0;
+      position: static;
+      height: auto;
+      transform: none;
+      width: 100%;
+      background-color: #e8e0ca; /* Light background for desktop menu */
+      padding: 0;
+      transition: none;
     }
-
-    .hamburger, .close {
-        display: none; /* Hide icons on larger screens */
+    
+    /* Hide hamburger and close icons on desktop */
+    .hamburger,
+    .close {
+      display: none;
     }
-
+    
+    /* Horizontal menu styling */
     nav ul {
-        display: flex;
-        justify-content: center;
+      display: flex;
+      justify-content: center;
+      margin: 0;
     }
-
     nav li {
-        display: inline-block;
-        padding: 12px 20px;
+      display: inline-block;
+      padding: 12px 20px;
     }
-}
-
-#navbar {
-    background-color: #000000;
-    color: #CFB991;
-    display: flex;
-    gap: 15px;
-    padding: 10px;
-}
-
-/* Bulletin Section */
-.bulletin-container {
+  }
+  
+  /* Additional Page Elements (for example) */
+  .bulletin-container {
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 20px;
-}
-
-.card {
+  }
+  .card {
     background-color: #DAAA00; /* Purdue Rush Gold */
     padding: 15px;
     border-radius: 5px;
     width: 300px;
     text-align: center;
-}
-
-#navbar.open {
-    transform: translateX(0); /* Bring the nav into view */
-    
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100vh;
-    background-color: #000000;
-    padding: 20px;
-}
-
-.week-container {
+  }
+  .week-container {
     text-align: center;
     padding: 50px;
-}
-
-/* Home Content */
-.center-image {
+  }
+  .center-image {
     max-width: 80%;
     height: auto;
     display: block;
     margin: 0 auto;
-}
-.quote {
+  }
+  .quote {
     max-width: 600px;
     margin: 20px auto;
     font-size: 1.2em;
     text-align: center;
-}
+  }

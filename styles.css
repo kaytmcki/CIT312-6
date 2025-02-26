@@ -1,149 +1,152 @@
-/* General Reset */
 body {
-    font-family: 'Franklin Gothic', sans-serif;
-    background-color: #EBD99F; /* Purdue Gold */
-    color: #000000; /* Black */
-    margin: 0;
+  font-family: 'Franklin Gothic', sans-serif;
+  background-color: #EBD99F; /* Purdue Gold */
+  color: #000000; /* Black */
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation Container */
+.menu-container {
+  position: relative;
+  background-color: #CFB991; /* Boilermaker Gold */
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Twitter Icon (always visible in full screen) */
+.twitter-icon {
+  font-size: 24px;
+  color: #000000;
+  text-decoration: none;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  font-size: 24px;
+  color: #000000;
+  text-decoration: none;
+  display: block; /* Always display on mobile */
+  z-index: 2000;
+}
+
+/* Navigation Menu - Mobile (Default) */
+nav {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100vh;
+  background-color: rgb(211, 179, 85);
+  text-align: center;
+  padding-top: 60px; /* Space for the close icon */
+  /* Initially hide the menu by sliding it off-screen to the left */
+  transform: translateX(-100%);
+  transition: transform 0.1s ease;
+}
+
+/* When the nav element is the target, slide it into view */
+nav:target {
+  transform: translateX(0);
+}
+
+/* Close Icon - Placed inside the nav menu (top-left corner) */
+.close {
+  font-size: 24px;
+  color: #000000; 
+  text-decoration: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;  /* Keep close icon in top-left corner of the right-sided menu */
+}
+
+/* Menu Items */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 50px 0 0 0;  /* Leave space for the close icon */
+}
+
+nav li {
+  padding: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000; 
+  transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+  display: block;
+}
+
+nav a:hover {
+  background-color: #555960;
+  color: #EBD99F;
+}
+
+/* Desktop (Horizontal Menu) */
+@media screen and (min-width: 699px) {
+  /* The nav becomes static and full width */
+  nav {
+    position: static;
+    height: auto;
+    transform: none;
+    width: 100%;
+    background-color: #e8e0ca; /* Light background for desktop menu */
     padding: 0;
+    transition: none;
   }
   
-  /* Navigation Container */
-  .menu-container {
-    position: relative;
-    background-color: #CFB991; /* Boilermaker Gold */
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  /* Twitter Icon */
-  .twitter-icon {
-    font-size: 20px;
-    color: #000000;
-    text-decoration: none;
-    margin-right: auto;
-  }
-  
-  /* Hamburger Icon - Visible on mobile */
-  .hamburger {
-    font-size: 24px;
-    color: #000000;
-    text-decoration: none;
-    display: block;
-    z-index: 2000;
-  }
-  
-  /* Navigation Menu for Mobile */
-  #navbar {
-    position: absolute;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100vh;
-    background-color: #000000; /* Black */
-    padding: 20px;
-    text-align: center;
-    /* Initially hidden offscreen */
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  /* When the "open" class is added, show the menu */
-  #navbar.open {
-    transform: translateX(0);
-  }
-  
-  /* Close Icon - Inside the mobile menu */
+  /* Hide hamburger and close icons on desktop */
+  .hamburger,
   .close {
-    font-size: 24px;
-    color: #CFB991;
-    text-decoration: none;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    display: none;
   }
   
-  /* Menu Items in the Nav */
-  #navbar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 50px 0 0 0; /* Leave room for the close icon */
-  }
-  #navbar li {
-    padding: 15px;
-  }
-  #navbar a {
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    color: #CFB991;
-    transition: background 0.3s ease, color 0.3s ease;
-    border-radius: 5px;
-    display: block;
-  }
-  #navbar a:hover {
-    background-color: #555960;
-    color: #EBD99F;
-  }
-  
-  /* Desktop (Horizontal Nav) Styles */
-  @media screen and (min-width: 700px) {
-    /* Reset nav to static, full-width layout */
-    #navbar {
-      position: static;
-      width: 100%;
-      height: auto;
-      background-color: #e8e0ca; /* Soft background */
-      padding: 0;
-      transform: none;
-      transition: none;
-    }
-    /* Hide hamburger and close icons */
-    .hamburger,
-    .close {
-      display: none;
-    }
-    #navbar ul {
-      display: flex;
-      justify-content: center;
-      margin: 0;
-    }
-    #navbar li {
-      display: inline-block;
-      padding: 12px 20px;
-    }
-  }
-  
-  /* Additional Page Elements */
-  .bulletin-container {
+  /* Horizontal menu styling */
+  nav ul {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    margin: 0;
   }
-  .card {
-    background-color: #DAAA00; /* Purdue Rush Gold */
-    padding: 15px;
-    border-radius: 5px;
-    width: 300px;
-    text-align: center;
+  nav li {
+    display: inline-block;
+    padding: 12px 20px;
   }
-  .week-container {
-    text-align: center;
-    padding: 50px;
-  }
-  .center-image {
-    max-width: 80%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  .quote {
-    max-width: 600px;
-    margin: 20px auto;
-    font-size: 1.2em;
-    text-align: center;
-  }
-  
+}
+
+/* Additional Page Elements (for example) */
+.bulletin-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+.card {
+  background-color: #DAAA00; /* Purdue Rush Gold */
+  padding: 15px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+}
+.week-container {
+  text-align: center;
+  padding: 50px;
+}
+.center-image {
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.quote {
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 1.2em;
+  text-align: center;
+}
